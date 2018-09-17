@@ -197,6 +197,13 @@ function simulate() {
   for (let box = 1; box <= 4; box++) {
     // completar
   }
+
+  console.log("Resultados del sorteo:");
+  groups.forEach((g) => {
+    console.log(`Grupo ${g}:`);
+    const teamNames = getTeamsForGroup(g).map(t => t.name);
+    console.log(teamNames.join(", "));
+  });
 }
 
 simulate();

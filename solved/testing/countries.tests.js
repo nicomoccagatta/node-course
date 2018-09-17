@@ -14,7 +14,7 @@ describe("countries tests", () => {
   
     describe("success cases", () => {
 
-      it("getByCode() should call countryInfo.getCountryInfo() with given country code", () => {
+      it("getByCode() should call countryInfo.getCountryInfo() with given country code and return data", () => {
         const stubGetCountryInfo = sinon.stub(countryInfo, "getCountryInfo").callsFake((code, cb) => {
           stubGetCountryInfo.restore();
           expect(code).to.eql(data.code);
@@ -39,7 +39,7 @@ describe("countries tests", () => {
         });
       });
 
-      it("getByName() should call countryInfo.getCountryInfoByName() with given country name", () => {
+      it("getByName() should call countryInfo.getCountryInfoByName() with given country name and return data", () => {
         const stubGetCountryInfoByName = sinon.stub(countryInfo, "getCountryInfoByName").callsFake((name, cb) => {
           stubGetCountryInfoByName.restore();
           expect(name).to.eql(data.name);

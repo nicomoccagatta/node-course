@@ -4,9 +4,9 @@
   "description": "Node.JS source code for courses given by Fiqus.",
   "main": "index.js",
   "scripts": {
-    "test": "mocha",
-    "test-coverage": "NODE_ENV=test istanbul cover _mocha -- -R spec",
-    "test-class3": "istanbul cover _mocha -- exercises/testing/*.tests.js"
+    "test-class2": "_mocha -- exercises/country-info/test/*.tests.js",
+    "test-class3": "_mocha -- exercises/testing/*.tests.js",
+    "test-class3-coverage": "NODE_ENV=test istanbul cover _mocha -- exercises/testing/*.tests.js"
   },
   "repository": {
     "type": "git",
@@ -24,8 +24,12 @@
     "npm": ">= 5.0.0"
   },
   "dependencies": {
+    "body-parser": "^1.18.3",
     "countryjs": "^1.8.0",
+    "ejs": "^2.6.1",
     "express": "^4.16.3",
+    "helmet": "^3.13.0",
+    "morgan": "^1.9.1",
     "request": "^2.88.0"
   },
   "devDependencies": {

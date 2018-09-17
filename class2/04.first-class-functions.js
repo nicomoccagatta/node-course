@@ -20,9 +20,9 @@ function applyFnAndNumberToArray(fn, listOfNumbers, numberToApply) {
 console.log(applyFnAndNumberToArray(sum, [0, 1, 2, 3, 4], 10));
 console.log(applyFnAndNumberToArray(myFunc, [0, 1, 2, 3, 4], 10));
 
-
-function sumNumber(listOfNumbers, numberToSum) {
+// eslint-disable-next-line
+const sumNumber = (listOfNumbers, numberToSum) => {
   return applyFnAndNumberToArray(sum, listOfNumbers, numberToSum);
-}
+};
 
 console.log(sumNumber([0, 1, 2, 3, 4], 10));

@@ -9,7 +9,7 @@ describe("countries tests", () => {
   
     describe("success cases", () => {
 
-      it("getByCode() should call countryInfo.getCountryInfo() with given country code", () => {
+      it("getByCode() should call countryInfo.getCountryInfo() with given country code and return data", () => {
         
       });
 
@@ -17,7 +17,7 @@ describe("countries tests", () => {
         
       });
 
-      it("getByName() should call countryInfo.getCountryInfoByName() with given country name", () => {
+      it("getByName() should call countryInfo.getCountryInfoByName() with given country name and return data", () => {
         
       });
 

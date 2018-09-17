@@ -1,0 +1,13 @@
+<html>
+  <head>
+    <title>My form!</title>
+    <body>
+      <form method="post" action="/form/send">
+        <div>Name: <input type="text" name="name" value="<%= name %>"/></div>
+        <div>Age: <input type="number" name="age" value="<%= age %>"/></div>
+        <div>Text: <textarea name="text"><%= text %></textarea></div>
+        <div><button type="submit">Send!</button></div>
+      </form>
+    </body>
+  </head>
+</html>

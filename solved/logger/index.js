@@ -28,4 +28,5 @@ http.createServer((req, res) => {
   logRequest(data);
   res.writeHead(200, {"Content-Type": "application/json"});
   res.end(transformDataObjectToJson(data));
+  console.log("Response sent!");
 }).listen(8000);

@@ -53,6 +53,7 @@ console.log(playerRonaldo);
 console.log("Array.findIndex() FR");
 const indexPlayerFranchute = bestPlayers.findIndex(player => player.country === "FR");
 console.log(indexPlayerFranchute);
+console.log(bestPlayers[indexPlayerFranchute]);
 
 // Array.sort()
 console.log("Array.sort() by name");
