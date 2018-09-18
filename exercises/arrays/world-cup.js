@@ -177,11 +177,11 @@ function shuffle(a) {
 }
 
 function getTeamsForBox(box) {
-  // completar
+  return teams.filter(value => value.box === box);
 }
 
 function getTeamsForGroup(group) {
-  // completar
+  return teams.filter(value => value.group === group);
 }
 
 
@@ -195,7 +195,15 @@ function simulate() {
   const groups = ["A", "B", "C", "D", "E", "F", "G", "H"];
 
   for (let box = 1; box <= 4; box++) {
-    // completar
+    const teamsShuffled = shuffle(getTeamsForBox(box));
+
+    teamsShuffled.forEach((value, idx) => {
+      let idxGroupForTeam = idx;
+      if (value.box === 1) {
+        idxGroupForTeam++;
+      }
+      value.group = groups[idxGroupForTeam];
+    });
   }
 
   console.log("Resultados del sorteo:");
