@@ -198,10 +198,7 @@ function simulate() {
     const teamsForBox = shuffle(getTeamsForBox(box));
 
     teamsForBox.forEach((team, index) => {
-      if (box === 1) {
-        index++;
-      }
-      team.group = groups[index];
+      team.group = groups[index + (box === 1 ? 1 : 0)];
     });
   }
 

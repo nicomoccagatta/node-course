@@ -1,3 +1,25 @@
+Promise.resolve("OK!")
+  .then((msg) => {
+    console.log(msg);
+    return "Joya!";
+  })
+  .then((msg) => {
+    console.log(msg);
+  });
+
+Promise.reject("ERROR!")
+  .catch((msg) => {
+    console.log(msg);
+    return "No problem!";
+  })
+  .then((msg) => {
+    console.log(msg);
+  });
+
+
+/* ------------------------------------------------- */
+
+
 function obtenerSemilla() {
   return Promise.resolve("obtenerSemilla OK");
 }
@@ -34,23 +56,30 @@ function cosecharFrutos(msg) {
 
 function huerta() {
   return obtenerSemilla()
-    .then(germinarSemilla)
+    .then((valorDevueltoPorObtenerSemilla) => {
+      return germinarSemilla(valorDevueltoPorObtenerSemilla);
+    })
     .then(plantarSemillaGerminada)
     .then(regarTierra)
     .then(cosecharFrutos)
     .then((res) => {
       console.log("Este mensaje solo aparecerá si 'cosecharFrutos' fue OK!");
-      return res;
+      return res; // Retornamos 'res' para que llegue al 'mundo exterior'
     });
 }
 
-const miHuerta = huerta();
-console.log("Antes de evaluar por fulfilled (then): ", miHuerta);
+function ejecutar() {
+  const miHuerta = huerta();
+  console.log("--------------------------------------");
+  console.log("Antes de evaluar por fulfilled (then): ", miHuerta);
 
-miHuerta
-  .then((res) => {
-    console.log("Mi huerta dió: ", res);
-  })
-  .catch((err) => {
-    console.error("Error: ", err.message);
-  });
+  miHuerta
+    .then((res) => {
+      console.log("Mi huerta dió: ", res);
+    })
+    .catch((err) => {
+      console.error("Error: ", err.message);
+    });
+}
+
+setTimeout(ejecutar, 1000);

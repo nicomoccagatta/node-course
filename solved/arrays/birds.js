@@ -38,13 +38,18 @@ function filterBy(array, prop, val) {
 }
 
 const birdNames = birds.map(b => b.name).sort((bName1, bName2) => bName1 > bName2);
-console.log("1. Nombres de todos los pájaros alfabéticamente: ", birdNames.join(", "));
+console.log("1. Nombres de todos los pájaros alfabéticamente:\n", birdNames.join(", "));
 
 const zorzal = birds.find(b => b.name === "Zorzal Colorado");
-console.log("2. Objeto completo para \"Zorzal Colorado\": ", zorzal);
+console.log("2. Objeto completo para \"Zorzal Colorado\":\n", zorzal);
 
 const tirannydae = filterBy(birds, "family", "Tirannydae").map(b => b.name);
-console.log("3. Nombres de los pájaros de la familia \"Tirannydae\": ", tirannydae);
+console.log("3. Nombres de los pájaros de la familia \"Tirannydae\":\n", tirannydae);
 
 const furnaridae = filterBy(birds, "family", "Furnaridae").length;
-console.log("4. Cantidad de pájaros de la familia \"Furnaridae\": ", furnaridae);
+console.log("4. Cantidad de pájaros de la familia \"Furnaridae\" (length):\n", furnaridae);
+
+const furnaridae2 = birds.reduce((count, bird) => {
+  return count + (bird.family === "Furnaridae" ? 1 : 0);
+}, 0);
+console.log("4. Cantidad de pájaros de la familia \"Furnaridae\" (reduce):\n", furnaridae2);
