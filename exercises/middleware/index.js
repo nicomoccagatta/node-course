@@ -32,6 +32,20 @@ function noFavicon(res) {
 }
 
 // Your middlewares code here!
+app.use((req, res, next) => {
+  if (req.url === "/none") {
+    noAnswer(req);
+  } else if (req.url === "/favicon.ico") {
+    noFavicon(res);
+  } else {
+    next();
+  }
+});
+
+app.use((req, res, next) => {
+  res.logData = logRequest(req);
+  next();
+});
 
 app.get("*", (req, res) => {
   console.log("Log data is:", res.logData);

@@ -1,7 +1,30 @@
 const request = require("request");
 
 function getJSON(url) {
-  // Your code here!
+  const options = {
+    url,
+    headers: {
+      "user-agent": "node-course",
+    }
+  };
+
+  return new Promise((resolve, reject) => {
+    request.get(options, (err, response, body) => {
+      if (err) {
+        reject(err);
+      } else if (response.statusCode === 200) {
+        try {
+          resolve(JSON.parse(body));
+        } catch (ex) {
+          reject(ex);
+        }
+      } else {
+        console.error(response);
+        // Log the conflictive response but returns an error without any request data!
+        reject(new Error("Couldn't get response!"));
+      }
+    });
+  });
 }
 
 Promise.all([
