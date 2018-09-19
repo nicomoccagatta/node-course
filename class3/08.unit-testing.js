@@ -21,7 +21,6 @@ function arrayFromNumber(x) {
   for (let idx = 1; idx <= x; idx++) {
     arr.push(idx);
   }
-
   return arr;
 }
 

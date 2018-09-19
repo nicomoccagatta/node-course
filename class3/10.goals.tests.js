@@ -8,7 +8,8 @@ describe("tests for goals", () => {
     expect(goals).to.have.length(2);
     expect(goals[0]).to.have.property("score");
     expect(goals[0].against).to.be.eql("Real Madrid");
-    expect(goals[1].against).to.be.eql("Estudiantes");
+    expect(goals[1].against).to.be.eql("Estudiantes")
+    ;
   });
 
   it("should return the Tevez's goals", () => {
