@@ -20,6 +20,8 @@ function getNodeRepos() {
           reject(ex);
         }
       } else {
+        console.error(response);
+        // Log the conflictive response but returns an error without any request data!
         reject(new Error("Couldn't get node repos!"));
       }
     });
