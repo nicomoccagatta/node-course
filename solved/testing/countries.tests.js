@@ -28,8 +28,9 @@ describe("countries tests", () => {
       });
 
       it("getByCode() should return null when countryInfo.getCountryInfo() doesn't return a valid response", () => {
-        const stubGetCountryInfo = sinon.stub(countryInfo, "getCountryInfo").callsFake((_, cb) => {
+        const stubGetCountryInfo = sinon.stub(countryInfo, "getCountryInfo").callsFake((code, cb) => {
           stubGetCountryInfo.restore();
+          expect(code).to.eql(data.code);
           cb(null, "whatever");
         });
 
@@ -53,8 +54,9 @@ describe("countries tests", () => {
       });
 
       it("getByName() should return null when countryInfo.getCountryInfoByName() doesn't return a valid response", () => {
-        const stubGetCountryInfoByName = sinon.stub(countryInfo, "getCountryInfoByName").callsFake((_, cb) => {
+        const stubGetCountryInfoByName = sinon.stub(countryInfo, "getCountryInfoByName").callsFake((name, cb) => {
           stubGetCountryInfoByName.restore();
+          expect(name).to.eql(data.name);
           cb(null, "whatever");
         });
 
@@ -71,8 +73,9 @@ describe("countries tests", () => {
       const error = new Error("This is an error!");
 
       it("getByCode() should reject with the error given by countryInfo.getCountryInfo()", () => {
-        const stubGetCountryInfo = sinon.stub(countryInfo, "getCountryInfo").callsFake((_, cb) => {
+        const stubGetCountryInfo = sinon.stub(countryInfo, "getCountryInfo").callsFake((code, cb) => {
           stubGetCountryInfo.restore();
+          expect(code).to.eql(data.code);
           cb(error);
         });
 
@@ -87,8 +90,9 @@ describe("countries tests", () => {
       });
 
       it("getByName() should reject with the error given by countryInfo.getCountryInfoByName()", () => {
-        const stubGetCountryInfoByName = sinon.stub(countryInfo, "getCountryInfoByName").callsFake((_, cb) => {
+        const stubGetCountryInfoByName = sinon.stub(countryInfo, "getCountryInfoByName").callsFake((name, cb) => {
           stubGetCountryInfoByName.restore();
+          expect(name).to.eql(data.name);
           cb(error);
         });
 

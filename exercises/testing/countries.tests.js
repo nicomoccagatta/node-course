@@ -46,8 +46,9 @@ describe("countries tests", () => {
       const error = new Error("This is an error!");
 
       it("getByCode() should reject with the error given by countryInfo.getCountryInfo()", () => {
-        const stubGetCountryInfo = sinon.stub(countryInfo, "getCountryInfo").callsFake((_, cb) => {
+        const stubGetCountryInfo = sinon.stub(countryInfo, "getCountryInfo").callsFake((code, cb) => {
           stubGetCountryInfo.restore();
+          expect(code).to.eql(data.code);
           cb(error);
         });
 
