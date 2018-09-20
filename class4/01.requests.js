@@ -17,7 +17,9 @@ function getNodeRepos() {
         try {
           resolve(JSON.parse(body));
         } catch (ex) {
-          reject(ex);
+          console.error(ex);
+          // Log the exception but returns an error without any sensitive data!
+          reject(new Error("Couldn't get node repos!"));
         }
       } else {
         console.error(response);
